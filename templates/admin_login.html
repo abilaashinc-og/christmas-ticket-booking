@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Admin login</h2>
+<p>Sign in with an administrator account to manage users.</p>
+
+<form method="POST" class="form-card">
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Login as admin</button>
+</form>
+{% endblock %}

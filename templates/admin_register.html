@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Admin Registration</h2>
+<p>Create an administrator account to manage the Christmas Ticket Booking System.</p>
+
+<form method="POST" class="form-card">
+    <label>Name</label>
+    <input type="text" name="name" required>
+
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Password</label>
+    <input type="password" name="password" required>
+
+    <label>Confirm password</label>
+    <input type="password" name="confirm_password" required>
+
+    <button type="submit">Create Admin Account</button>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Edit user {{ user.id }}</h2>
+<p>Update the details and role of this user.</p>
+
+<form method="POST" class="form-card">
+    <label>Name</label>
+    <input type="text" name="name" value="{{ user.name }}" required>
+
+    <label>Email</label>
+    <input type="email" name="email" value="{{ user.email }}" required>
+
+    <label>Role</label>
+    <select name="role">
+        <option value="user" {% if user.role == "user" %}selected{% endif %}>User</option>
+        <option value="admin" {% if user.role == "admin" %}selected{% endif %}>Admin</option>
+    </select>
+
+    <button type="submit">Save changes</button>
+</form>
+{% endblock %}

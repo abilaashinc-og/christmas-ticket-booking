@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Book tickets for {{ event.name }}</h2>
+
+<img src="{{ url_for('static', filename='images/tickets.png') }}"
+     alt="Tickets illustration"
+     style="max-width: 150px; display: block; margin-bottom: 15px;">
+
+<form method="POST" enctype="multipart/form-data" class="form-card">
+    <label>Number of adults</label>
+    <input type="number" name="num_adults" min="0" value="1" required>
+
+    <label>Number of children</label>
+    <input type="number" name="num_children" min="0" value="0" required>
+
+    <label>Seat type</label>
+    <select name="seat_type" required>
+        <option value="with_table">With table</option>
+        <option value="without_table">Without table</option>
+    </select>
+
+    <label>Adult photo (for identification)</label>
+    <input type="file" name="adult_photo">
+
+    <button type="submit">Confirm booking</button>
+</form>
+{% endblock %}

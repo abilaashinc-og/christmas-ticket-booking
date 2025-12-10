@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Admin dashboard</h2>
+<p>Manage registered users for the London Community Park ticket system.</p>
+
+<p>
+    <a href="{{ url_for('create_admin') }}" class="btn">Create new admin user</a>
+    <a href="{{ url_for('admin_bookings') }}" class="btn">View all bookings</a>
+</p>
+
+<h3>All users</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for u in users %}
+        <tr>
+            <td>{{ u.id }}</td>
+            <td>{{ u.name }}</td>
+            <td>{{ u.email }}</td>
+            <td>{{ u.role }}</td>
+            <td>
+                <a href="{{ url_for('admin_edit_user', user_id=u.id) }}">Edit</a>
+                <form action="{{ url_for('admin_delete_user', user_id=u.id) }}"
+                      method="POST"
+                      style="display: inline;">
+                    <button type="submit" onclick="return confirm('Delete this user?');">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

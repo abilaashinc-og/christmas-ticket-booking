@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Christmas Events at London Community Park</h1>
+        <p>
+            Book magical festive experiences for family and friends including shows, rides,
+            and seasonal attractions.
+        </p>
+        {% if not current_user.is_authenticated %}
+            <a href="{{ url_for('register') }}" class="btn hero-btn">Create an account</a>
+        {% else %}
+            <a href="#events" class="btn hero-btn">View events</a>
+        {% endif %}
+    </div>
+</section>
+
+<section id="events">
+    <h2>Upcoming events</h2>
+
+    {% if events %}
+        <div class="cards">
+            {% for event in events %}
+                <div class="card">
+                    {% if event.name == "Christmas Circus" %}
+                        <img src="{{ url_for('static', filename='images/event_circus.jpg') }}"
+                             alt="Christmas Circus"
+                             class="card-image">
+                    {% elif event.name == "Santa Steam Train" %}
+                        <img src="{{ url_for('static', filename='images/event_train.jpg') }}"
+                             alt="Santa Steam Train"
+                             class="card-image">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='images/default_event.jpg') }}"
+                             alt="Christmas event"
+                             class="card-image">
+                    {% endif %}
+
+                    <h3>{{ event.name }}</h3>
+                    <p><strong>Date:</strong> {{ event.date }}</p>
+                    <p><strong>Location:</strong> {{ event.location }}</p>
+                    <p>{{ event.description }}</p>
+
+                    {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('book_event', event_id=event.id) }}" class="btn">Book now</a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}" class="btn">Login to book</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No events have been added yet.</p>
+    {% endif %}
+</section>
+
+{% endblock %}

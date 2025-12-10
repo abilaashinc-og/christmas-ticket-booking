@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>All bookings</h2>
+<p>Overview of all bookings made by users.</p>
+
+{% if bookings %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Booking ID</th>
+            <th>User</th>
+            <th>User email</th>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Adults</th>
+            <th>Children</th>
+            <th>Seat type</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for b in bookings %}
+        <tr>
+            <td>{{ b.id }}</td>
+            <td>{{ b.user.name }}</td>
+            <td>{{ b.user.email }}</td>
+            <td>{{ b.event.name }}</td>
+            <td>{{ b.event.date }}</td>
+            <td>{{ b.num_adults }}</td>
+            <td>{{ b.num_children }}</td>
+            <td>{{ b.seat_type }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <p>No bookings have been made yet.</p>
+{% endif %}
+{% endblock %}

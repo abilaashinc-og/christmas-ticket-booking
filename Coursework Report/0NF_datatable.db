@@ -1,0 +1,5 @@
+Customer Name | Age | Address                     | Contact Numbers                  | Email        | Event Booked                        | Seat Types                  | Payment Method
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+John Mason    | 24  | 123 Main Street, London E2  | 07745242342, 07765887809         | j@j.com      | Carols, Rail Ride                   | Table (2), No Table (3)     | PayPal, Cash
+Jessie Pinkman| 53  | 23 Victoria Lane, London E1 | 07725242542, 07765888809         | jp@gmail.com | Indoor Circus (4 tickets)           | Table (1), No Table (3)     | Credit Card
+Jordan Smith  | 32  | 254 Melb Lane, London P2    | 07745642312                      | js@hotmail.com| Sweeney Steam Ride, Water Sports   | No Table (4)                | Cash

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>My bookings</h2>
+<p>These are the events you have booked.</p>
+
+{% if bookings %}
+    <div class="cards">
+        {% for b in bookings %}
+            <div class="card">
+                <h3>{{ b.event.name }}</h3>
+                <p><strong>Date:</strong> {{ b.event.date }}</p>
+                <p><strong>Location:</strong> {{ b.event.location }}</p>
+                <p><strong>Adults:</strong> {{ b.num_adults }}</p>
+                <p><strong>Children:</strong> {{ b.num_children }}</p>
+                <p><strong>Seat type:</strong> {{ b.seat_type }}</p>
+                <p><strong>Booking ID:</strong> {{ b.id }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>You have not made any bookings yet.</p>
+{% endif %}
+{% endblock %}

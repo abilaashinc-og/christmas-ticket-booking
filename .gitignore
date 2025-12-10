@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+
+# SQLite database
+database.db
+
+# Uploads folder
+app/static/uploads/
+
+# Operating system files
+.DS_Store
+
+# VSCode / Codespaces settings
+.vscode/
+.history/
+
+# Byte-compiled / cache
+*.log
